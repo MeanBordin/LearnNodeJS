@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    table, tr, th {
+        border: 1px solid black;
+    }
+    table {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <h1>Hello EJS Template Engines</h1>
+    <ul style="list-style: none;">
+        <li>Name: <%= name %>
+        </li>
+        <% if (age> 10) {%>
+            <li>Age: <%= age %></li>
+        <% } %>
+            <li><%- address %></li> <!-- <%- %> เรียกใช้งาน tage html -->
+    </ul>
+
+    <hr>
+
+    <h1>
+        <%= name2.firstname +" "+ name2.lastname %></h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Action</th>
+        </tr>
+        <% for(i=1; i<=3; i++) { %>
+            <tr>
+                <th><%= i %></th>
+                <th>Mean</th>
+                <th>Bordinsak</th>
+                <th>
+                    <button>edit</button>
+                    <button>del</button>
+                </th>
+            </tr>
+        <% } %>
+    </table>
+
+    <h2>Product</h2>
+    <% for(i=0; i<=product.length; i++) { %>
+        <p><%= product[i] %></p>
+    <% } %>
+
+    <hr>
+
+    <h2>Product2</h2>
+    <!-- array + object ใช้ใช้ฟังก์ชั่น Object.values() แล้วก็วนลูป -->
+    <% Object.values(product2).forEach((data) => { %>
+        <p>product name: <%= data.name %></p>
+        <p>product name: <%= data.price %></p>
+        <img src="<%= data.image %>">        
+        <hr>
+    <% }) %> 
+</body>
+
+</html>

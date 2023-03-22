@@ -1,0 +1,51 @@
+# Server ผู้ให้บริการ
+# Client ผู้ใช้บริการ (User/Browser)
+# Requesr คำขอในเข้าถึง
+# Response ตอบกลับคำขอ
+
+# การสร้างแอพ 
+    -   npm init or npm init -y (ไม่ต้องใส่รายละเอียด)
+    -   package.json เก็บข่อมูลหรือรายละเอียดต่างๆ
+        รวมถึง module / package ที่จะต้องใช้ภายในโปรเจค 
+    
+    - สร้าง Web Server
+        -   http.createServer() สร้าง Server
+            โดยการสร้างการเชื่อมต่อแลพะ รับส่งข้อมูลผ่าน 
+            Callback funtion และรับส่งค่าเข้ามาทำงาน 2 ค่า
+        
+        -   req (request) รับข้อมูลจาก User (Browser) มาที่ Server
+        -   res (Response) ส่งข้อมูลตอบกลับจาก Server ไปหาผู้ใช้
+        
+        -   response.write() เขียนผลลัพธ์ตอบกบับไปหาผู้ใช้
+            ระบุเป็นข้อความหรือ HTML ก็ได้ (เขียนหรือไม่เขียนก็ได้)
+        
+        -   response.end() กำหนดจุดสิ้นสุดการรับส่งข้อมูลหรือระบุการตอบกลับ
+            ไปหาผู้ใช้งาน
+        
+        -   listen(3000, 'hostname', CallbackFn) สั่งให้ Web Server เริ่มรันแล้วเชื่อมต่อไปยัง Port
+            หมายเลข 3000 หรือ Port อื่นก็ได้ เช่น 5000, 8000 เป็นต้น
+
+        -   nodemon
+                - npx nodemon filename
+                - move onn -> ctrl + c, hold y
+                - add srcipt 
+                    - "start": "nodemon ./bin/www"
+                
+                - use command npm start
+
+    -   Rounting 
+            -   rount ทำงานร่วมกับ request เพื่อรับข้อมูลจาก users
+
+# ติดตั้ง Express.js 
+    -   npm install express or npm i express   
+
+    -   Express & Routing
+        -   use (path เริ่มต้น)
+        -   http method (get, post)
+
+
+# การเปลี่ยน path ด้วยคำสั่ง redirect
+    -   ใช้งานร่วมกับ parameter response(res)
+        -   ยกตัวอย่างการใช้ redirect 
+            -   สามารถประยุกค์ใช้ได้กับการกดสั่งของ แต่ว่า users ยังไม่ได้ทำการ register หรือ login 
+                ก็จะให้ทำการ redirect ไปที่หน้า register หรือ login 
